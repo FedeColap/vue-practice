@@ -4,19 +4,37 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Vue document</title>
+        <!-- this goes here because otherwise loads the bones first and you see that, for a fraction of a second -->
+        <script src="node_modules/vue/dist/vue.js"></script> 
+        <link rel="stylesheet" type="text/css" href="littlefede.css">
     </head>
     <body>
         <div id="app">
-            {{message}}
+            {{ message }}
+            <h1>
+                Welcome, {{ name }}
+            </h1>
+            <p>{{ greet('afternoon') }}</p>
+            <h2>Hey, check my profile on Github</h2>
+            <a v-bind:href="website">FedeColap</a>
+            <h2 v-html="portfolioTag"></h2>
+            <p>My age is {{ age }}</p>
+            <button v-on:click="age++">Add one year</button>
+            <button v-on:click="age--">Subtract one year</button>
         </div>
-        <script src="node_modules/vue/dist/vue.js"></script>
-        <script src="./main.js"></script>
+        <div id="age">
+            <p>This is another way of playing with events... la mia eta' e' {{ eta }}</p>
+            <!-- here you don't need () after add and subtract because Vue knows it fires on click -->
+            <!-- @ is equal to v-on: -->
+            <button @click='add'>Aggiungi un anno</button>
+            <button @click='subtract'>Sottrai un anno</button>
+            <div id="canvas" v-on:mousemove="fedefollows">
+                <div id="littlefede"></div>
+            </div>
+        </div>
+        <!-- this goes here because otherwise page doesn't understand the vue components -->
+        <script src="./app.js"></script>
+        <script src="./age.js"></script>
     </body>
 </html>
 
-<!-- var app = new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue!'
-    }
-}) -->

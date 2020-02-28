@@ -1,0 +1,18 @@
+#canvas {
+    width: 600px;
+    padding: 200px 20px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+/* study how to move this */
+#littlefede {
+    width:57px;
+    height: 57px;
+    background-image: url("littlefede.png");
+    border-radius: 50%;
+    position: absolute;
+    left: mouseX;
+    top: mouseY;
+    margin: -10px 0 0 -10px;
+    pointer-events: none;
+}
